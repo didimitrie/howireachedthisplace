@@ -1,0 +1,14 @@
+{
+  "name": "howireachedthisplace",
+  "version": "0.0.1",
+  "description": "a little funny traceroute visualiser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Penny & Dimitrie",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
