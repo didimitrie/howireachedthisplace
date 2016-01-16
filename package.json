@@ -9,6 +9,10 @@
   "author": "Penny & Dimitrie",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
+    "mongoose": "^4.3.6",
+    "morgan": "^1.6.1",
+    "traceroute": "0.0.3"
   }
 }
