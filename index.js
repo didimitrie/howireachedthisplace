@@ -1,6 +1,6 @@
 var express  = require('express');
 var app      = express();
-var port     = process.env.PORT || 7331;
+var port     = process.env.PORT || 8765;
 var morgan   = require('morgan');
 
 // get db up
@@ -21,17 +21,31 @@ app.use(express.static('assets'));
 
 // routes
 app.get("/", function(req, res) {
-  res.render("index.jade", 
-  {
-    userip : req._remoteAddress
-  });
-  
-  traceroute.trace('31.192.117.132', function (err,hops) {
-    console.log("Here comes the trace: ");  
-    if (!err) 
-      console.log(hops);
-    else console.log(err);
-  });
+ var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+ ip = ip.split(",")[0];
+ ip = ip.replace("::ffff:", "");
+
+ traceroute.trace(ip, function (err,hops) {
+    //console.log("Here comes the trace: "); 
+    //console.log(req);
+    
+    console.log("client ip is: " + ip);
+    if (!err) {
+      res.render("index.jade", {
+        userip : ip,
+        //hops : JSON.stringify(hops, null, 4),
+        hops : hops,
+        request : req
+      })
+    }
+    else {
+      res.render("index.jade", {
+        userip : ip,
+        hops : "Soz, there was an error... :/",
+        request : req
+      })
+    }
+  }); 
 })
 
 

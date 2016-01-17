@@ -12,5 +12,16 @@ html
   script(src="/js/main.js")
 
 body
-  h1 Hello There. A start is a start.
-  p Your ip is #{userip}
+  h1 The internet isn't that magical. There's no teleportation.
+  hr
+  p.
+    Information is peddled by #[strong secret gnomes] that run at close to lightspeed through special channels. #[strong They meet and trade at special points], where they exchange packets made of bits, and then run off on various errands. This project aims to expose this conspiracy of information trading gnomes.
+  hr
+  h2.blue Your ip is #{userip}. 
+  hr
+  h4 Here are the trade route points the gnomes took to get #[strong.blue you] here:
+  for myHop in hops
+    if myHop
+      p 
+        =JSON.stringify(myHop)
+  
