@@ -1,2 +1,16 @@
-h1 Hello there.
-p This doesn't do much - yet. Watch this space.
+doctype html
+html
+  head
+  title HowIReachedThisPlace
+  // cool fonts
+  link(href='https://fonts.googleapis.com/css?family=Titillium+Web:400,700,300' rel='stylesheet' type='text/css')
+  // cool css
+  link(rel='stylesheet', href='/css/main.css')
+  // jquery because... i don't know
+  script(src="https://code.jquery.com/jquery-2.1.4.min.js")
+  // our own amazing javascript
+  script(src="/js/main.js")
+
+body
+  h1 Hello There. A start is a start.
+  p Your ip is #{userip}
